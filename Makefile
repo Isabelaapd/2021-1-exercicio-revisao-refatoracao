@@ -6,7 +6,7 @@ BUILD_DIR    = ./build
 SRC_DIR    = ./src
 INCLUDE_DIR  = ./include
 
-${TARGET}: ${BUILD_DIR}/Imovel.o ${BUILD_DIR}/Apartamento.o ${BUILD_DIR}/Cobertura.o ${BUILD_DIR}/Casa.o ${BUILD_DIR}/Cliente.o ${BUILD_DIR}/Relatorio.o ${BUILD_DIR}/main.o
+${TARGET}: ${BUILD_DIR}/Imovel.o ${BUILD_DIR}/Apartamento.o ${BUILD_DIR}/Cobertura.o ${BUILD_DIR}/Casa.o ${BUILD_DIR}/Cliente.o ${BUILD_DIR}/revisao.o ${BUILD_DIR}/main.o
 	${CC} ${CFLAGS} -o ${TARGET} ${BUILD_DIR}/*.o
 
 ${BUILD_DIR}/Imovel.o: ${INCLUDE_DIR}/Cliente/Cliente.hpp ${INCLUDE_DIR}/Imoveis/Imovel.hpp ${SRC_DIR}/Imoveis/Imovel.cpp
@@ -24,8 +24,8 @@ ${BUILD_DIR}/Casa.o: ${INCLUDE_DIR}/Cliente/Cliente.hpp ${INCLUDE_DIR}/Imoveis/C
 ${BUILD_DIR}/Cliente.o: ${INCLUDE_DIR}/Cliente/Cliente.hpp ${SRC_DIR}/Cliente/Cliente.cpp
 	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/Cliente/ -c ${SRC_DIR}/Cliente/Cliente.cpp -o ${BUILD_DIR}/Cliente.o
 
-${BUILD_DIR}/Relatorio.o: ${INCLUDE_DIR}/*/*.hpp ${SRC_DIR}/Relatorio/Relatorio.cpp
-	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/Cliente/ -I ${INCLUDE_DIR}/Imoveis/ -I ${INCLUDE_DIR}/Relatorio/ -c ${SRC_DIR}/Relatorio/Relatorio.cpp -o ${BUILD_DIR}/Relatorio.o
+${BUILD_DIR}/revisao.o: ${INCLUDE_DIR}/*/*.hpp ${SRC_DIR}/revisao/revisao.cpp
+	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/Cliente/ -I ${INCLUDE_DIR}/Imoveis/ -I ${INCLUDE_DIR}/revisao/ -c ${SRC_DIR}/revisao/revisao.cpp -o ${BUILD_DIR}/revisao.o
 
 ${BUILD_DIR}/main.o: ${INCLUDE_DIR}/*/*.hpp ${SRC_DIR}/main.cpp
-	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/Cliente/ -I ${INCLUDE_DIR}/Imoveis/ -I ${INCLUDE_DIR}/Relatorio/ -c ${SRC_DIR}/main.cpp -o ${BUILD_DIR}/main.o
+	${CC} ${CFLAGS} -I ${INCLUDE_DIR}/Cliente/ -I ${INCLUDE_DIR}/Imoveis/ -I ${INCLUDE_DIR}/revisao/ -c ${SRC_DIR}/main.cpp -o ${BUILD_DIR}/main.o
